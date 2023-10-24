@@ -1,0 +1,253 @@
+//li[text()='Multiple Choice One Answer']
+
+
+(//a[text()='Multiple Choice One Answer']//following::a[text()='Quiz'])[1]
+
+
+/*List<WebElement> ClassAlertsSubjectschkbx= driver.findElements(By.xpath("(//a[text()='Multiple Choice Multiple Answer question type']//following::a[text()='Quiz'])[1]"));
+	
+	   int totalClassAlertsSubjectscountchkbx=ClassAlertsSubjectschkbx.size();
+	  
+	  System.out.print(totalClassAlertsSubjectscountchkbx);
+   
+	for(int i=totalClassAlertsSubjectscountchkbx-1;i<totalClassAlertsSubjectscountchkbx;i++) {
+		  ClassAlertsSubjectschkbx.get(i).click();
+		 
+	  }
+	*/
+
+
+
+These are all interlinked 
+SanityTestcases-->Admin-->22UnitBuilder_03
+SanityTestcases-->Staff-->10Quiz Builder_001
+SanityTestcases-->Staff-->11Class Quizzes_001
+SanityTestcases-->Staff-->13TeacherResources_01
+
+
+SanityTestcases-->Staff-->14Quiz Builder_002
+
+
+
+
+<img src="/Images/CustomImages/grid-icon.png" alt="Actions" onclick="ViewStudentDetailsForm(&quot;9&quot;,&quot;516&quot;,&quot;35AD04C0EB3539FB4E47710D2467236FD4BC76452375F7AFF0950E678ACA7CC7&quot;)" value="Actions" style="cursor:pointer;">
+
+
+IS SELECTED Keywords
+-------------------------------
+
+WebElement chkBxAdmin = driver.findElement(By.xpath("//span[text()='Admin']//preceding::input[@name='ManageAdminAccounts' and @id='ManageAdminAccounts']"));
+		boolean isSelectedplanParent = chkBxAdmin.isSelected();
+				
+		//performing click operation if element is not checked
+		if(isSelectedplanParent == false) {
+			chkBxAdmin.click();
+			println("check box is  selected");
+			
+			WebUI.delay(GlobalVariable.MED_DELAY)
+			
+		}
+		else  if(isSelectedplanParent == true) {
+			chkBxAdmin.click();
+			println("check box is Un checked selected");
+		}
+		else {
+			
+			println("check box is not  selected");
+		}
+
+-------------------------------------------------------
+date format
+-------------------------------------------------------
+	DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a");
+	LocalDateTime localDateTime = LocalDateTime.now();
+	LocalDateTime updateDateTime = localDateTime.plusDays(1);
+
+	String dateTime = updateDateTime.format(dateTimeFormatter);
+	println(dateTime);
+
+
+DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy ");
+	
+	LocalDateTime localDateTime  = LocalDateTime.now();
+	LocalDateTime updateDateTime  = localDateTime.plusDays(4);
+	
+	 String DueTime = updateDateTime.format(dateFormatter);
+		println(DueTime);
+	
+	String Currentdate = localDateTime.format(dateFormatter);
+	println(Currentdate);
+--------------------------------------------------------------------------------------------------------
+
+
+List StudentsAccount= driver.findElements(By.xpath("(//body[@autocorrect='off' and @contenteditable='true'])[1]"));
+  int Studentlock=StudentsAccount.size();
+  
+  System.out.print(Studentlock);
+  
+  //locating the first name locator
+  StudentsAccount.get(0).clear();
+  StudentsAccount.get(0).sendKeys("Students account is locked,please contact Admin");
+ 
+
+//Validating Recent Score course visible or not
+	String RecentScoreexpectedsubject1=CustomKeywords.'uiaction.CommonUIActions.getText'(findTestObject('ADP_Admin/CalManageEvnts/Recentscoressubject'))
+	String RecentScoreactualsubject1="W";
+	
+	if(RecentScoreexpectedsubject1.contains("W")) {
+		println("with drawn course is available");
+		
+	}
+	else {
+		   TCflag = false
+			   System.out.println('with drawn course is not available')
+			   WebUI.takeScreenshot() }
+  
+	
+
+-----------------------------------------------------------------------
+is verfielement
+-----------------------------------------------------------------------
+boolean Teacher = WebUI.verifyElementPresent(findTestObject('ADP_Admin/NewAdminUser/Teacher'), 10)
+	
+		if (Teacher) {
+			System.out.println('Teacher is  displayed')
+		} else {
+			TCflag = false
+	
+			System.out.println('Teacher is not  displayed ' + WebUI.verifyMatch(Teacher, 'true',false))
+		}
+---------------------------------------------------------------------------------------------
+-----------------------------------------------------------
+by using array list select the particular Size element
+--------------------------------------------------------------
+Model1:
+List<WebElement> Subjects= driver.findElements(By.xpath("//a[@class='classAnchor']"));
+		int Subjectscount=Subjects.size();
+		
+		System.out.print(Subjectscount);
+	 
+		for(int i=0;i<Subjectscount;i++) {
+			if(i==2) {
+				Subjects.get(i)click();	
+				println("element  found")
+			}
+			else {
+				println("element not found")
+			}
+		}
+--------------------------------------------------------------
+Model2:
+List<WebElement> ClassAnnouncementsSubjectschkbx= driver.findElements(By.xpath("(//div[text()='Section:']//following::input[@type='checkbox'])"));
+	 
+	    int totalClassAnnouncementsSubjectscountchkbx=ClassAnnouncementsSubjectschkbx.size();
+	   
+	   System.out.print(totalClassAnnouncementsSubjectscountchkbx);
+	
+	   for(int i=0;i<totalClassAnnouncementsSubjectscountchkbx;i++) {
+		   if(i<1) {
+			   ClassAnnouncementsSubjectschkbx.get(i)click();
+			   println("element  found")
+		   }
+		   else {
+			   println("element not found")
+		   }
+	   }
+----------------------------------------
+Model3:
+---------------------
+// CustomKeywords.'uiaction.CommonUIActions.click'(findTestObject('ADP_Staff/Announcement/chbxsubjectclass'))
+	   WebUI.delay(GlobalVariable.MED_DELAY)
+	   
+	   List<WebElement> ClassAlertsSubjectschkbx= driver.findElements(By.xpath("//input[@class='check_row inputforall mgn0 wdt-hgt-auto']"));
+	   
+		  int totalClassAlertsSubjectscountchkbx=ClassAlertsSubjectschkbx.size();
+		 
+		 System.out.print(totalClassAlertsSubjectscountchkbx);
+	  
+	   for(int i=totalClassAlertsSubjectscountchkbx-1;i<totalClassAlertsSubjectscountchkbx;i++) {
+			 ClassAlertsSubjectschkbx.get(i).click();
+			
+		 }
+	   
+
+-----------------------------------------------------------------
+select the particular element by using text
+---------------------------------------------------------------
+List<WebElement> Okbutton= driver.findElements(By.xpath("//button[text()='OK']"));
+	   for(WebElement btn:Okbutton) {
+		   String btnname=btn.getText();
+		   if(btnname.equals("OK")) {
+			   btn.click();
+			   println("Button clicked")
+		   }
+		   else {
+			   println("Button not clicked")
+		   }
+	   }
+
+----------------------------------------------------s
+
+			CustomKeywords.'uiaction.CommonUIActions.click'(findTestObject('ADP_Admin/Calendar/txtEvnt'))
+						WebUI.delay(GlobalVariable.MAXLONG_DELAY)
+						
+						
+						boolean Calendareventdownloadicon = WebUI.verifyElementPresent(findTestObject('ADP_Groups/file'), 10)
+						
+							if (Calendareventdownloadicon) {
+								System.out.println('Calendarevent download icon  is displayed')
+							} else {
+								TCflag = false
+						
+								System.out.println('Calendareventdownloadicon    is not displayed ' + WebUI.verifyMatch(Calendareventdownloadicon, 'true',false))
+							}
+							WebUI.delay(GlobalVariable.MAXLONG_DELAY)
+
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+/*
+	CustomKeywords.'uiaction.CommonUIActions.click'(findTestObject('ADP_Regression/19Quiz Builder_002/CrtQuiz/ddQuizQuestion'))
+
+	CustomKeywords.'uiaction.CommonUIActions.click'(findTestObject('ADP_Regression/18Quiz Builder_001/fileUploadLink'))
+
+	WebUI.delay(GlobalVariable.MIN_DELAY)
+
+	WebUI.switchToFrame(findTestObject('ADP_Regression/18Quiz Builder_001/textBxQuestion'), 10)
+
+	CustomKeywords.'uiaction.CommonUIActions.click'(findTestObject('ADP_Regression/19Quiz Builder_002/CrtQuiz/txtBxQuizQuestion'))
+
+	WebUI.delay(GlobalVariable.MIN_DELAY)
+
+	CustomKeywords.'uiaction.CommonUIActions.enter'(findTestObject('ADP_Regression/19Quiz Builder_002/CrtQuiz/txtBxQuizQuestion'), 'Attach the pictures')
+
+	WebUI.switchToDefaultContent()
+
+	WebUI.scrollToElement(findTestObject('ADP_Regression/18Quiz Builder_001/points'), 10)
+
+	CustomKeywords.'uiaction.CommonUIActions.click'(findTestObject('ADP_Regression/18Quiz Builder_001/points'))
+
+	WebUI.clearText(findTestObject('ADP_Regression/18Quiz Builder_001/points'))
+
+	CustomKeywords.'uiaction.CommonUIActions.enter'(findTestObject('ADP_Regression/18Quiz Builder_001/points'), '10')
+
+	CustomKeywords.'uiaction.CommonUIActions.click'(findTestObject('ADP_Regression/19Quiz Builder_002/CrtQuiz/btnSaveQuestion'))
+
+	WebUI.delay(GlobalVariable.MIN_DELAY)
+
+	List<WebElement> Okbutton= driver.findElements(By.xpath("//button[text()='OK']"));
+	   for(WebElement btn:Okbutton) {
+		   String btnname=btn.getText();
+		   if(btnname.equals("OK")) {
+			   btn.click();
+			   println("Button clicked")
+		   }
+		   else {
+			   println("Button not clicked")
+		   }
+	   }*/
+
+
+---------------------------------------------------------------------------------------------------------
